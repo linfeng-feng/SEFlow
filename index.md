@@ -1,19 +1,18 @@
 
-# Enhancing Intelligibility for Generative Target Speech Extraction via Joint Optimization with Target Speaker ASR
+# Towards a Scalable and Unified Architecture for Speech Enhancement and Beyond
 
-This is the demonstration page of the paper "Enhancing Intelligibility for Generative Target Speech Extraction via Joint Optimization with Target Speaker ASR" with samples generated with the proposed method and some other baseline methods.
 
-[![arXiv](https://img.shields.io/badge/arXiv-2402.17455-brightgreen.svg?style=flat-square)](https://arxiv.org/)
+<!-- [![arXiv](https://img.shields.io/badge/arXiv-2402.17455-brightgreen.svg?style=flat-square)](https://arxiv.org/) -->
 <!-- [![github](https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white)](https://github.com/Aisaka0v0/CLAPSep)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/AisakaMikoto/CLAPSep) -->
 
-<div align="center">
+<!-- <div align="center">
   <img src="demo/main.jpg" alt="Main figure" width="500"/>
-</div>
+</div> -->
 
 ## Abstract
 
-Target speech extraction (TSE) isolates speech for a specific speaker within the multi-talker overlapped speech mixture. Most existing TSE models are based on discriminative methods, which always predict a time-frequency spectrogram mask for the target speech. However, imperfections in the mask often lead to over-/under-suppression of target/non-target speech, degrading perceptual quality. Generative methods, on the other hand, re-synthesize target speech based on the mixture and target speaker cues, achieving superior perceptual quality. However, these methods often neglect speech intelligibility, causing changes or loss of semantic content in the re-synthesized speech. Inspired by the Whisper model's success in target speaker ASR, we propose a generative target speech extraction framework based on the pre-trained Whisper model, integrating semantic modeling with flow-based acoustic modeling for both high intelligibility and perceptual quality. Results on multiple evaluation benchmarks show the proposed method outperforms existing generative and discriminative baselines.
+Deploying neural networks on devices with vastly different computational budgets is critical yet challenging. We aim to design a single neural network that can be split into sub-networks of varying sizes—without fine‑tuning or distillation—to directly accommodate diverse resource constraints. To enable broad scalability, we make both the width and depth of the network adjustable. For width, we propose FlexLinear, a linear layer with adjustable neuron counts, and extend it to FlexAttention, which supports adjustable numbers of attention heads. We further propose FlexRMSNorm, which is a normalization layer with variable width. Combined with early‑exit mechanisms, this yields a width‑ and depth‑scalable architecture. Built with the above modules, we propose SEFlow, a causal and sampling-rate-agnostic model that supports a wide range of speech enhancement (SE) tasks—including denoising, dereverberation, declipping, and packet loss concealment—without task-specific IDs. Using prior inputs, SEFlow also generalizes to target speaker extraction (TSE) and acoustic echo cancellation (AEC). Experiments demonstrate that SEFlow matches the performance of task-specific state-of-the-art models across multiple SE tasks. Remarkably, even sub-networks as small as 1\% of the full network remain effective in low-resource scenarios.
 
 
 ## Demos
