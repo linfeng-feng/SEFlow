@@ -21,6 +21,7 @@ def process_flac_to_png(flac_path, png_path):
     ax[0].set_xlim(0, len(y)/sr)
     ax[0].grid(True, alpha=0.3)
     ax[0].set_xticklabels([])
+    ax[0].axis('off') 
 
     # Spectrogram
     D = librosa.amplitude_to_db(np.abs(librosa.stft(y, hop_length=256)), ref=1.0)
@@ -33,6 +34,7 @@ def process_flac_to_png(flac_path, png_path):
     ax[1].set_ylim(0, sr//2)
     ax[1].tick_params(axis='y', which='major', length=3, pad=2)
     ax[1].grid(True, axis='y', alpha=0.3)
+    ax[1].axis('off') 
 
 
     for a in ax:

@@ -7,19 +7,19 @@ y, sr = librosa.load(r'clip\noisy\p257_089_mic1.flac', sr=None)
 
 fig, ax = plt.subplots(2, 1, figsize=(12, 8),
                       gridspec_kw={
-                          'hspace': 0.01,
+                          'hspace': 0,
                           'height_ratios': [5, 8]
                       })
 
 
 # -----------------------------------------
-ax[0].plot(np.linspace(0, len(y)/sr, len(y)), y, linewidth=0.25, color='#00FFFF')
+ax[0].plot(np.linspace(0, len(y)/sr, len(y)), y, linewidth=0.25, color=(160/255, 60/255, 200/255))
 ax[0].set_ylabel('Amplitude', labelpad=10)
 ax[0].set_ylim(-1, 1)
 ax[0].set_xlim(0, len(y)/sr)
 ax[0].grid(True, alpha=0.3)
 ax[0].set_xticklabels([])
-
+ax[0].axis('off') 
 
 # -----------------------------------------
 D = librosa.amplitude_to_db(np.abs(librosa.stft(y, hop_length=256)), ref=1.0)
@@ -34,6 +34,7 @@ ax[1].set_ylabel('Frequency (Hz)', labelpad=10)
 ax[1].set_ylim(0, sr//2)
 ax[1].tick_params(axis='y', which='major', length=3, pad=2)
 ax[1].grid(True, axis='y', alpha=0.3)
+ax[1].axis('off') 
 
 
 for a in ax:
